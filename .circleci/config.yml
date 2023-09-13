@@ -16,7 +16,8 @@ jobs:
             - run:
                 name: Test application
                 command: |
-                    TEST=$(circleci tests glob "src/__tests__/*.js" | circleci tests split --split-by=timings)
+                    TEST=$(circleci tests glob "src/__tests__/*.js" | circleci tests split --split-by=timings --timings-type=testname
+)
                     yarn test $TEST
             - run:
                 command: cp junit.xml ~/junit/
